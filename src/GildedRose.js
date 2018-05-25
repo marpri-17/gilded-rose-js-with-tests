@@ -1,9 +1,12 @@
 /*
     2006-30-84
     Leeroy was here!!
-    
+
     Leeroy <lerooy@example.com>
 */
+
+const Item = require('./Item');
+
 var GildedRose = function () {
   var items = [];
   items.push(new Item("+5 Dexterity Vest", 10, 20));
@@ -82,3 +85,5 @@ GildedRose.updateQuality = function (items) {
   }
   return items;
 };
+
+module.exports = GildedRose;

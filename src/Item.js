@@ -3,3 +3,5 @@ var Item = function (name, sellIn, quality) {
   this.sellIn = sellIn;
   this.quality = quality;
 };
+
+module.exports = Item;
