@@ -2,7 +2,7 @@ const GildedRose = require('../src/GildedRose');
 const Item = require('../src/Item');
 
 describe("GildedRose shop manager", function () {
-    var items;
+    let items;
 
     beforeEach(function(){
         items = [];
@@ -14,7 +14,7 @@ describe("GildedRose shop manager", function () {
 
         items = GildedRose.updateQuality(items);
 
-        var expected = [
+        const expected = [
             {sellIn:9 , quality:19},
             {sellIn:2 , quality:5 }
         ];
@@ -30,7 +30,7 @@ describe("GildedRose shop manager", function () {
 
         items = GildedRose.updateQuality(items);
 
-        var expected = [
+        const expected = [
             {sellIn:19, quality:31 },
             {sellIn:19, quality:31},
         ];
@@ -46,7 +46,7 @@ describe("GildedRose shop manager", function () {
 
         items = GildedRose.updateQuality(items);
 
-        var expected = [
+        const expected = [
             {sellIn:9, quality:36 },
             {sellIn:7, quality:32},
         ];
@@ -62,7 +62,7 @@ describe("GildedRose shop manager", function () {
 
         items = GildedRose.updateQuality(items);
 
-        var expected = [
+        const expected = [
             {sellIn:3, quality:14 },
             {sellIn:4, quality:18},
         ];
@@ -78,7 +78,7 @@ describe("GildedRose shop manager", function () {
 
         items = GildedRose.updateQuality(items);
 
-        var expected = [
+        const expected = [
             {sellIn:-1, quality:18},
             {sellIn:-1, quality:4 }
         ];
@@ -94,7 +94,7 @@ describe("GildedRose shop manager", function () {
 
         items = GildedRose.updateQuality(items);
 
-        var expected = [
+        const expected = [
             {sellIn:-1, quality:0 },
             {sellIn:-1, quality:0 },
         ];

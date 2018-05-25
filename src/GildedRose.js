@@ -7,8 +7,8 @@
 
 const Item = require('./Item');
 
-var GildedRose = function () {
-  var items = [];
+const GildedRose = function () {
+  const items = [];
   items.push(new Item("+5 Dexterity Vest", 10, 20));
   items.push(new Item("Aged Brie", 2, 0));
   items.push(new Item("Elixir of the Mongoose", 5, 7));
@@ -19,7 +19,7 @@ var GildedRose = function () {
 };
 
 GildedRose.updateQuality = function (items) {
-  for (var i = 0; i < items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     if ("Aged Brie" != items[i].name && "Backstage passes to a TAFKAL80ETC concert" != items[i].name) {
       //TODO: Improve this code.
       if (items[i].quality > 0) {
