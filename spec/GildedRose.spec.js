@@ -121,4 +121,22 @@ describe("GildedRose shop manager", function () {
         expect(items[0].quality).toBe(50);
         expect(items[0].sellIn).toBe(3);
     });
+
+    it("Conjured items degrade in Quality twice as fast as normal items", function () {
+        items.push(new Item("Conjured", 4, 49));
+
+        items = GildedRose.updateQuality(items);
+
+        expect(items[0].quality).toBe(47);
+        expect(items[0].sellIn).toBe(3);
+    });
+
+    it("Conjured items degrade in Quality twice as fast as normal items also when sellIn time passes", function () {
+        items.push(new Item("Conjured", 0, 49));
+
+        items = GildedRose.updateQuality(items);
+
+        expect(items[0].quality).toBe(45);
+        expect(items[0].sellIn).toBe(-1);
+    });
 });

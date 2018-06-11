@@ -1,9 +1,3 @@
-/*
-    2006-30-84
-    Leeroy was here!!
-
-    Leeroy <lerooy@example.com>
-*/
 
 const Item = require('./Item');
 
@@ -37,9 +31,15 @@ class GildedRose {
 
   updateRegularItemQuality(item){
     this.decreaseQuality(item)
+    if(item.name === "Conjured"){
+      this.decreaseQuality(item)
+    }
 
     if (item.sellIn < 0) {
       this.decreaseQuality(item)
+      if(item.name === "Conjured"){
+        this.decreaseQuality(item)
+      }
     }
   }
 
