@@ -18,45 +18,40 @@ class GildedRose {
       item.quality -= 1;
     }
   }
-  updateQuality(items) {
-    for (let i = 0; i < items.length; i++) {
-      if (items[i].name !== "Sulfuras, Hand of Ragnaros"){
 
-        items[i].sellIn = items[i].sellIn - 1;
+  updateItemQuality(item){
 
-        if (items[i].name !== "Aged Brie" &&  items[i].name !== "Backstage passes to a TAFKAL80ETC concert") {
-            this.decreaseQuality(items[i])
-          } else {
-            this.increaseQuality(items[i])
-            if (items[i].name === "Aged Brie" || items[i].name === "Backstage passes to a TAFKAL80ETC concert") {
-              if (items[i].sellIn < 11) {
-                this.increaseQuality(items[i])
-              }
-              if (items[i].sellIn < 6) {
-                this.increaseQuality(items[i])
-              }
-            }
-          }
+    if (item.name === "Sulfuras, Hand of Ragnaros") return;
 
+    item.sellIn = item.sellIn - 1;
 
-          if (items[i].sellIn < 0) {
-            if (items[i].name !== "Aged Brie") {
-              if ("Backstage passes to a TAFKAL80ETC concert" != items[i].name) {
-                if (items[i].quality > 0) {
-                  if ("Sulfuras, Hand of Ragnaros" != items[i].name) {
-                    this.decreaseQuality(items[i])
-                  }
-                }
-              } else {
-                items[i].quality = 0
-              }
-            } else {
-              items[i].quality = 0
-            }
-          }
+    if (item.name === "Aged Brie" || item.name === "Backstage passes to a TAFKAL80ETC concert"){
+      if (item.sellIn < 0) {
+        item.quality = 0
+      }else{
+        this.increaseQuality(item)
+        if (item.sellIn < 11) {
+          this.increaseQuality(item)
+        }
+        if (item.sellIn < 6) {
+          this.increaseQuality(item)
         }
       }
+      return;
+    }
 
+
+    this.decreaseQuality(item)
+
+    if (item.sellIn < 0) {
+      this.decreaseQuality(item)
+    }
+
+  }
+  updateQuality(items) {
+    for (let i = 0; i < items.length; i++) {
+      this.updateItemQuality(items[i]);
+    }
     return items;
   }
 
